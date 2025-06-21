@@ -1,0 +1,21 @@
+{
+  "name": "whatsapp_backend",
+  "version": "1.0.0",
+  "description": "Whatsapp Clone Backend server ",
+  "license": "ISC",
+  "author": "Rohan sunar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0",
+    "mongoose": "^8.15.1",
+    "nodemon": "^3.1.10"
+  }
+}
