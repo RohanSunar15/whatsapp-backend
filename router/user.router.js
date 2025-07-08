@@ -7,7 +7,6 @@ const UserController = require('../controller/user.controller');
 
 router.get('/user/:phone', verifyToken , UserController.getUserByPhoneNumber);
 
-
 router.post('/user', UserController.createUser);
 
 
