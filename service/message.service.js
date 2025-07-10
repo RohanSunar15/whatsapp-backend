@@ -28,6 +28,7 @@ exports.getConversationList = async (userId) => {
     {
       $group: {
         _id: "$conversationId",
+        conversationId: { $first: "$conversationId" },
         lastMessage: { $first: "$text" },
         lastSenderId: { $first: "$senderId" },
         lastReceiverId: { $first: "$receiverId" },
@@ -64,7 +65,8 @@ exports.getConversationList = async (userId) => {
     { $unwind: "$otherUser" },
     {
       $project: {
-        conversationId: "$_id",
+        _id: 0,
+        conversationId: 1,
         lastMessage: 1,
         timestamp: 1,
         otherUser: {

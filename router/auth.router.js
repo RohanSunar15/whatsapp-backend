@@ -1,15 +1,8 @@
 const router = require('express').Router();
-const verifyToken = require('../middleware/auth.middleware')
+const AuthController = require('../controller/auth.controller')
 
-// verify Token 
-router.post('/verify-token', verifyToken, (req, res)=>{
-    res.json({    
-    
-        message: 'Authenticated',
-        uid: req.user.uid, 
-        phone: req.user.phone
-    });
-},);
+// Auth routes (Verify User Token)
+router.post('/verify-user',  AuthController.verifyUser);
 
 
 module.exports = router;

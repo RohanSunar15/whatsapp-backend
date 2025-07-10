@@ -1,7 +1,7 @@
 const admin = require('../config/firebaseAdmin');
 
 
-async function verifyToken  (req, res, next) {
+async function verifyTokenMiddleware  (req, res, next) {
     const authHeader = req.headers.authorization;
 
     if(!authHeader || !authHeader.startsWith('Bearer ')){
@@ -24,4 +24,4 @@ const idToken = authHeader.split(' ')[1];
 }
 
 
-module.exports = verifyToken;
+module.exports = verifyTokenMiddleware;

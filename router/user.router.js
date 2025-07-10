@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const verifyToken = require('../middleware/verifyToken.middleware');
+const verifyTokenMiddleware = require('../middleware/verifyToken.middleware');
 const UserController = require('../controller/user.controller');
 
 
 
 
-router.get('/user/:phone', verifyToken , UserController.getUserByPhoneNumber);
+router.get('/user/:phone', verifyTokenMiddleware , UserController.getUserByPhoneNumber);
 
-router.post('/user', UserController.createUser);
+router.post('/user',verifyTokenMiddleware,  UserController.createUser);
 
 
 module.exports = router;
