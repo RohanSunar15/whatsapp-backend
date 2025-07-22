@@ -8,6 +8,12 @@ const messageSchema = new mongooose.Schema({
   receiverId: {type: String, required: true},
   text: {type: String, required: true},
   conversationId: { type: String, required: true },
+  unreadCount: { type: Number, default: 0 },
+
+  isCall: { type: Boolean, default: false }, 
+  callType: { type: String, enum: ['voice', 'video', 'none'], default: 'none' },
+  callStatus: { type: String, enum: ['none', 'missed', 'picked'], default: 'none' },
+
   status: { type: String, enum: ['sent', 'delivered', 'seen'], default: 'sent' },
 },
 {timestamps: true, versionKey: false },);

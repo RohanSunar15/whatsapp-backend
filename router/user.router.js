@@ -3,11 +3,7 @@ const verifyTokenMiddleware = require('../middleware/verifyToken.middleware');
 const UserController = require('../controller/user.controller');
 
 
-
-
-router.get('/user/:phone', verifyTokenMiddleware , UserController.getUserByPhoneNumber);
-
-router.post('/user',verifyTokenMiddleware,  UserController.createUser);
-
+// User routes (Create User)
+router.post('/create-user',  UserController.createUser);
 
 module.exports = router;

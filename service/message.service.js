@@ -32,7 +32,12 @@ exports.getConversationList = async (userId) => {
         lastMessage: { $first: "$text" },
         lastSenderId: { $first: "$senderId" },
         lastReceiverId: { $first: "$receiverId" },
-        timestamp: { $first: "$createdAt" }
+        timestamp: { $first: "$createdAt" },
+        isCall: { $first: "$isCall" },
+        callType: { $first: "$callType" },
+        callStatus: { $first: "$callStatus" },
+        status: { $first: "$status" }
+      
       }
     },
     {
@@ -68,11 +73,17 @@ exports.getConversationList = async (userId) => {
         _id: 0,
         conversationId: 1,
         lastMessage: 1,
+        isCall: 1,
+        callType: 1,
+        callStatus: 1,
+        status: 1,
         timestamp: 1,
         otherUser: {
           _id: "$otherUser._id",
           name: "$otherUser.name",
-          avatarUrl: "$otherUser.avatarUrl"
+          profileImage: "$otherUser.profileImage",
+
+          
         }
       }
     },

@@ -22,3 +22,19 @@ exports.verifyUser = async (token) => {
     phone
   };
 };
+
+exports.findUserinDb = async (phone) => {
+
+  if (!phone) {
+    throw new Error('Phone number not provided');
+  }
+
+
+  const user = await User.findOne({ phone });
+
+  if (!user) {                                                                                              
+    throw new Error('User not found');
+  }   
+
+  return user;
+}
