@@ -30,38 +30,6 @@ It handles core backend logic like:
 - ✅ Fetch user details and chat history
 - ✅ Token-based secure API routes
 
-## 📁 Project Structure
-
-```plaintext
-WHATSAPP_BACKEND/
-├── config/                          # Configuration files
-│   ├── db.js                        # MongoDB connection setup
-│   └── firebaseAdmin.js            # Firebase Admin SDK initialization
-│
-├── controller/                     # Route logic controllers
-│   └── user.controller.js          # User-related controller functions
-│
-├── middleware/                     # Middleware for auth and verification
-│   ├── auth.middleware.js          # JWT auth validation
-│   └── verifyToken.middleware.js   # Firebase token verification
-│
-├── model/                          # Mongoose schemas (e.g., User, Message)
-│
-├── router/                         # Express route definitions
-│   ├── auth.router.js              # Auth routes
-│   └── user.router.js              # User routes
-│
-├── service/                        # Business logic layer
-│   └── user.service.js             # Handles user DB operations
-│
-├── .env                            # Environment variables
-├── .env.example                    # Example env config
-├── .gitignore
-├── app.js                          # Express app configuration
-├── index.js                        # Server entry point
-├── package-lock.json
-└── package.json   
-```
 ---
 ## 🔐 Environment Setup
 
