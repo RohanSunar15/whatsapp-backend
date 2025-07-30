@@ -8,10 +8,8 @@ exports.sendMessage = async ({senderId, receiverId, text}) => {
     return await message.save();
 }
 
-exports.getChatMessages = async (userId) => {
-    return await Message.find({
-        $or: [{ senderId: userId }, { receiverId: userId }]
-    }).sort({ createdAt: 1 });
+exports.getChatMessages = async (conversationId) => {
+    return await Message.find({conversationId}).sort({ createdAt: 1 });
 }
 
 exports.getConversationList = async (userId) => {
@@ -33,6 +31,7 @@ exports.getConversationList = async (userId) => {
         lastSenderId: { $first: "$senderId" },
         lastReceiverId: { $first: "$receiverId" },
         timestamp: { $first: "$createdAt" },
+        unreadCount: {$first: "$unreadCount"},
         isCall: { $first: "$isCall" },
         callType: { $first: "$callType" },
         callStatus: { $first: "$callStatus" },
@@ -77,6 +76,7 @@ exports.getConversationList = async (userId) => {
         callType: 1,
         callStatus: 1,
         status: 1,
+        unreadCount: 1,
         timestamp: 1,
         otherUser: {
           _id: "$otherUser._id",
