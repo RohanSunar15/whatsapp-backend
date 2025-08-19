@@ -1,9 +1,8 @@
-const { text } = require('body-parser');
 const { Timestamp } = require('firebase-admin/firestore');
-const mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
 
-const messageSchema = new mongooose.Schema({
+const messageSchema = new mongoose.Schema({
   senderId: {type: String, required: true},
   receiverId: {type: String, required: true},
   text: {type: String, required: true},
@@ -21,4 +20,4 @@ const messageSchema = new mongooose.Schema({
 messageSchema.index({ conversationId: 1, createdAt: 1 });
 
 
-module.exports = mongooose.model('Message', messageSchema);
+module.exports = mongoose.model('Message', messageSchema);
